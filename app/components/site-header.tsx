@@ -4,7 +4,7 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <a className="logo" href="#hero" aria-label="Home">
-        B
+        P
       </a>
       <nav>
         <ol>
