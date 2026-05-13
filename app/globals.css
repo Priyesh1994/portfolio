@@ -219,8 +219,10 @@ main {
   position: relative;
   isolation: isolate;
   border-radius: var(--border-radius);
+  cursor: pointer;
   transform: translateZ(0);
   transition: transform 0.35s ease, filter 0.35s ease;
+  will-change: transform, filter;
 }
 
 .avatar-frame::before,
@@ -234,31 +236,37 @@ main {
 .avatar-frame::before {
   inset: 0;
   z-index: 1;
-  background: color-mix(in srgb, var(--green) 35%, transparent);
+  background:
+    linear-gradient(120deg, transparent 0 34%, color-mix(in srgb, var(--white) 70%, transparent) 48%, transparent 62%),
+    color-mix(in srgb, var(--green) 35%, transparent);
   mix-blend-mode: screen;
   opacity: 0.42;
+  pointer-events: none;
+  transform: translateX(-130%);
 }
 
 .avatar-frame::after {
   inset: 18px -18px -18px 18px;
   z-index: -1;
   border: 2px solid var(--green);
+  box-shadow: 0 0 0 transparent;
 }
 
 .avatar-frame:hover,
 .avatar-frame:focus-within {
-  transform: translate(-6px, -6px) rotate(-1deg);
-  filter: drop-shadow(0 18px 28px color-mix(in srgb, var(--green) 16%, transparent));
+  animation: avatar-hover-float 0.9s ease-in-out infinite alternate;
+  filter: drop-shadow(0 22px 32px color-mix(in srgb, var(--green) 26%, transparent));
 }
 
 .avatar-frame:hover::before,
 .avatar-frame:focus-within::before {
-  opacity: 0;
+  animation: avatar-shine 1.05s ease-in-out infinite;
+  opacity: 0.9;
 }
 
 .avatar-frame:hover::after,
 .avatar-frame:focus-within::after {
-  transform: translate(10px, 10px);
+  animation: avatar-border-pulse 0.9s ease-in-out infinite alternate;
 }
 
 .avatar {
@@ -275,8 +283,50 @@ main {
 
 .avatar-frame:hover .avatar,
 .avatar-frame:focus-within .avatar {
+  animation: avatar-photo-zoom 0.9s ease-in-out infinite alternate;
   filter: none;
-  transform: scale(1.02);
+}
+
+@keyframes avatar-hover-float {
+  from {
+    transform: translate(-5px, -5px) rotate(-1.25deg);
+  }
+
+  to {
+    transform: translate(-14px, -12px) rotate(1.5deg);
+  }
+}
+
+@keyframes avatar-shine {
+  from {
+    transform: translateX(-130%);
+  }
+
+  to {
+    transform: translateX(130%);
+  }
+}
+
+@keyframes avatar-border-pulse {
+  from {
+    box-shadow: 0 0 0 color-mix(in srgb, var(--green) 0%, transparent);
+    transform: translate(6px, 6px);
+  }
+
+  to {
+    box-shadow: 0 0 26px color-mix(in srgb, var(--green) 28%, transparent);
+    transform: translate(16px, 16px);
+  }
+}
+
+@keyframes avatar-photo-zoom {
+  from {
+    transform: scale(1.03);
+  }
+
+  to {
+    transform: scale(1.08);
+  }
 }
 
 .project-card {
@@ -602,6 +652,7 @@ footer {
   .avatar-frame::before,
   .avatar-frame::after,
   .avatar {
+    animation: none;
     transition: none;
   }
 
