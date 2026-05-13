@@ -1,3 +1,7 @@
+'use client';
+
+import { type KeyboardEvent, useState } from 'react';
+
 const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
@@ -15,12 +19,53 @@ const socialLinks = [
 const jobs = [
   {
     company: 'Upstatement',
-    title: 'Senior Frontend Engineer',
-    range: '2018 — Present',
+    title: 'Lead Engineer',
+    range: 'May 2018 — Present',
     bullets: [
-      'Build accessible, inclusive products and digital experiences for a variety of clients.',
-      'Work with modern JavaScript frameworks and design systems to deliver production-ready experiences.',
-      'Collaborate with multidisciplinary teams and mentor junior developers.',
+      'Deliver high-quality, robust production code for a diverse array of projects for clients including Harvard Business School, Everytown for Gun Safety, Pratt Institute, Koala Health, Vanderbilt University, The 19th News, and more.',
+      'Work alongside creative directors to lead the research, development, and architecture of technical solutions to fulfill business requirements.',
+      'Collaborate with designers, project managers, and other engineers to transform creative concepts into production realities for clients and stakeholders.',
+      'Provide leadership within engineering department through close collaboration, knowledge shares, and mentorship.',
+    ],
+  },
+  {
+    company: 'Apple',
+    title: 'UI Engineer',
+    range: 'July 2017 — May 2018',
+    bullets: [
+      'Built and shipped performant interface prototypes for internal web platforms and product storytelling workflows.',
+      'Partnered with designers and engineers to translate high-fidelity visual systems into accessible, responsive experiences.',
+      'Maintained front-end component patterns and documented implementation details for cross-functional teams.',
+    ],
+  },
+  {
+    company: 'Scout Studio',
+    title: 'Studio Developer',
+    range: 'January 2016 — June 2017',
+    bullets: [
+      'Developed brand-focused websites, campaigns, and interactive prototypes for early-stage clients.',
+      'Collaborated with strategy and design teams to scope technical work and preserve visual detail through launch.',
+      'Improved reusable build tooling and front-end patterns used across multiple studio projects.',
+    ],
+  },
+  {
+    company: 'Starry',
+    title: 'Software Engineer Co-op',
+    range: 'July 2015 — December 2015',
+    bullets: [
+      'Supported production web interfaces for customer onboarding, coverage discovery, and internal operations.',
+      'Implemented responsive UI features and collaborated with QA to resolve browser-specific defects.',
+      'Contributed to shared documentation for component usage and release workflows.',
+    ],
+  },
+  {
+    company: 'MullenLowe',
+    title: 'Creative Technologist Co-op',
+    range: 'January 2015 — June 2015',
+    bullets: [
+      'Prototyped interactive marketing concepts using modern front-end tooling and motion techniques.',
+      'Worked closely with art directors to refine visual details, animations, and responsive layouts.',
+      'Prepared polished demos and technical handoff notes for campaign stakeholders.',
     ],
   },
 ];
@@ -47,6 +92,21 @@ const projects = [
 ];
 
 export default function Home() {
+  const [activeJob, setActiveJob] = useState(0);
+  const selectedJob = jobs[activeJob];
+
+  const handleJobKeyDown = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
+    if (!['ArrowDown', 'ArrowRight', 'ArrowUp', 'ArrowLeft'].includes(event.key)) {
+      return;
+    }
+
+    event.preventDefault();
+    const direction = event.key === 'ArrowDown' || event.key === 'ArrowRight' ? 1 : -1;
+    const nextIndex = (index + direction + jobs.length) % jobs.length;
+    setActiveJob(nextIndex);
+    document.getElementById(`job-tab-${nextIndex}`)?.focus();
+  };
+
   return (
     <>
       <header className="site-header">
@@ -127,19 +187,45 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="experience">
+        <section id="experience" className="experience">
           <h2 className="numbered-heading">Where I&apos;ve Worked</h2>
-          <article className="job-card">
-            <h3>
-              {jobs[0].title} <span>@ {jobs[0].company}</span>
-            </h3>
-            <p className="job-range">{jobs[0].range}</p>
-            <ul className="fancy-list">
-              {jobs[0].bullets.map(item => (
-                <li key={item}>{item}</li>
+          <div className="jobs-tabs">
+            <div className="jobs-tablist" role="tablist" aria-label="Work history">
+              {jobs.map((job, index) => (
+                <button
+                  className={index === activeJob ? 'job-tab active' : 'job-tab'}
+                  id={`job-tab-${index}`}
+                  key={job.company}
+                  role="tab"
+                  type="button"
+                  aria-selected={index === activeJob}
+                  aria-controls={`job-panel-${index}`}
+                  tabIndex={index === activeJob ? 0 : -1}
+                  onClick={() => setActiveJob(index)}
+                  onKeyDown={event => handleJobKeyDown(event, index)}
+                >
+                  {job.company}
+                </button>
               ))}
-            </ul>
-          </article>
+            </div>
+
+            <article
+              className="job-panel"
+              id={`job-panel-${activeJob}`}
+              role="tabpanel"
+              aria-labelledby={`job-tab-${activeJob}`}
+            >
+              <h3>
+                {selectedJob.title} <span>@ {selectedJob.company}</span>
+              </h3>
+              <p className="job-range">{selectedJob.range}</p>
+              <ul className="fancy-list">
+                {selectedJob.bullets.map(item => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+          </div>
         </section>
 
         <section id="work">
