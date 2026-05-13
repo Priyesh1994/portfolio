@@ -1,13 +1,12 @@
-<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100%" height="100%" fill="#05162b" />
-    
+<svg width="800" height="600" viewBox="330 220 140 160" xmlns="http://www.w3.org/2000/svg">
+        
     <polygon points="400,225 465,262.5 465,337.5 400,375 335,337.5 335,262.5" 
-             fill="none" 
+             fill="#05162b" 
              stroke="#4fffcb" 
              stroke-width="6" 
              stroke-linejoin="round" />
     
-    <text x="400" y="318" 
+    <text x="400" y="322" 
           font-family="Arial, sans-serif" 
           font-size="64" 
           font-weight="bold" 

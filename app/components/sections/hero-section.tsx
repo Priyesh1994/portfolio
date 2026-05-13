@@ -1,7 +1,7 @@
 export function HeroSection() {
   return (
     <section id="hero" className="hero">
-      <p className="overline">Hi, my name is</p>
+      <p className="overline" style={{ textDecorationLine: 'none' }}>Hi, my name is</p>
       <h1>Priyesh Doshi.</h1>
       <h2>I build things for the web.</h2>
       <p className="intro">
