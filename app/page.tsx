@@ -1,4 +1,5 @@
 import { EmailRail } from '@/app/components/email-rail';
+import { InitialLoader } from '@/app/components/initial-loader';
 import { SiteFooter } from '@/app/components/site-footer';
 import { SiteHeader } from '@/app/components/site-header';
 import { SocialRail } from '@/app/components/social-rail';
@@ -11,6 +12,7 @@ import { WorkSection } from '@/app/components/sections/work-section';
 export default function Home() {
   return (
     <>
+      <InitialLoader />
       <SiteHeader />
       <SocialRail />
       <EmailRail />
