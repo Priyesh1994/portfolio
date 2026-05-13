@@ -432,3 +432,114 @@ footer {
     width: min(100%, 220px);
   }
 }
+
+.initial-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at center, color-mix(in srgb, var(--light-navy) 38%, transparent), transparent 36%),
+    var(--navy);
+  animation: loader-shell-exit 0.45s ease 1.8s forwards;
+}
+
+.loader-mark {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: grid;
+  place-items: center;
+  filter: drop-shadow(0 0 24px color-mix(in srgb, var(--green) 28%, transparent));
+}
+
+.loader-hexagon {
+  position: absolute;
+  inset: 0;
+  color: var(--green);
+  overflow: visible;
+}
+
+.loader-hexagon polygon {
+  fill: color-mix(in srgb, var(--light-navy) 18%, transparent);
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 320;
+  stroke-dashoffset: 320;
+  transform-origin: center;
+  animation:
+    develop-hexagon 1.35s cubic-bezier(0.65, 0, 0.35, 1) forwards,
+    loader-pulse 1.3s ease-in-out 1.25s infinite;
+}
+
+.loader-letter {
+  position: relative;
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1;
+  opacity: 0;
+  transform: scale(0.85);
+  animation: loader-letter-in 0.55s ease 0.35s forwards;
+}
+
+@keyframes develop-hexagon {
+  0% {
+    stroke-dashoffset: 320;
+    transform: rotate(-90deg) scale(0.84);
+    opacity: 0.25;
+  }
+  70% {
+    stroke-dashoffset: 0;
+    transform: rotate(0deg) scale(1.03);
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes loader-letter-in {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes loader-pulse {
+  50% {
+    filter: drop-shadow(0 0 12px color-mix(in srgb, var(--green) 45%, transparent));
+  }
+}
+
+@keyframes loader-shell-exit {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .initial-loader,
+  .loader-hexagon polygon,
+  .loader-letter {
+    animation-duration: 0.01ms;
+    animation-delay: 0ms;
+    animation-iteration-count: 1;
+  }
+
+  .loader-hexagon polygon {
+    stroke-dashoffset: 0;
+  }
+
+  .loader-letter {
+    opacity: 1;
+    transform: none;
+  }
+}
