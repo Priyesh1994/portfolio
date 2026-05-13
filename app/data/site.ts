@@ -1,3 +1,8 @@
+export const logo = {
+  src: '/priyesh_logo.svg',
+  alt: 'Priyesh logo',
+};
+
 export const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },

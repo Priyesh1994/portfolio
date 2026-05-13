@@ -1,3 +1,5 @@
+import { BrandLogo } from '@/app/components/brand-logo';
+
 export function AboutSection() {
   return (
     <section id="about">
@@ -23,7 +25,9 @@ export function AboutSection() {
           </ul>
         </div>
         <div className="avatar-wrap">
-          <div className="avatar" />
+          <div className="avatar">
+            <BrandLogo className="avatar-logo" sizes="300px" />
+          </div>
         </div>
       </div>
     </section>

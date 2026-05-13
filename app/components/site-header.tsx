@@ -1,10 +1,11 @@
+import { BrandLogo } from '@/app/components/brand-logo';
 import { navLinks } from '@/app/data/site';
 
 export function SiteHeader() {
   return (
     <header className="site-header">
       <a className="logo" href="#hero" aria-label="Home">
-        P
+        <BrandLogo className="logo-image" priority />
       </a>
       <nav>
         <ol>

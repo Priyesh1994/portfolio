@@ -51,15 +51,21 @@ a {
 }
 
 .logo {
-  color: var(--green);
   width: 42px;
   height: 42px;
   border: 1px solid var(--green);
   border-radius: var(--border-radius);
   display: grid;
   place-items: center;
-  font-family: var(--font-mono);
-  font-size: 1.2rem;
+  overflow: hidden;
+  background: var(--navy);
+}
+
+.logo-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .site-header nav ol {
@@ -220,8 +226,18 @@ main {
   width: 100%;
   aspect-ratio: 1;
   border-radius: var(--border-radius);
-  background: linear-gradient(135deg, var(--lightest-navy), #2d4a75);
+  background: var(--navy);
   border: 2px solid var(--green);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.avatar-logo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .project-card {
@@ -475,16 +491,16 @@ footer {
     loader-pulse 1.3s ease-in-out 1.25s infinite;
 }
 
-.loader-letter {
+.loader-logo {
   position: relative;
-  color: var(--green);
-  font-family: var(--font-mono);
-  font-size: 42px;
-  font-weight: 600;
-  line-height: 1;
+  width: 84px;
+  height: 84px;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--border-radius);
   opacity: 0;
   transform: scale(0.85);
-  animation: loader-letter-in 0.55s ease 0.35s forwards;
+  animation: loader-logo-in 0.55s ease 0.35s forwards;
 }
 
 @keyframes develop-hexagon {
@@ -505,7 +521,7 @@ footer {
   }
 }
 
-@keyframes loader-letter-in {
+@keyframes loader-logo-in {
   to {
     opacity: 1;
     transform: scale(1);
@@ -528,7 +544,7 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   .initial-loader,
   .loader-hexagon polygon,
-  .loader-letter {
+  .loader-logo {
     animation-duration: 0.01ms;
     animation-delay: 0ms;
     animation-iteration-count: 1;
@@ -538,7 +554,7 @@ footer {
     stroke-dashoffset: 0;
   }
 
-  .loader-letter {
+  .loader-logo {
     opacity: 1;
     transform: none;
   }

@@ -1,5 +1,6 @@
 'use client';
 
+import { BrandLogo } from '@/app/components/brand-logo';
 import { useEffect, useState } from 'react';
 
 const LOADER_DURATION_MS = 2200;
@@ -25,7 +26,7 @@ export function InitialLoader() {
         <svg className="loader-hexagon" viewBox="0 0 120 120" focusable="false">
           <polygon points="60 7 106 33.5 106 86.5 60 113 14 86.5 14 33.5" />
         </svg>
-        <span className="loader-letter">P</span>
+        <BrandLogo className="loader-logo" priority sizes="120px" />
       </div>
     </div>
   );
