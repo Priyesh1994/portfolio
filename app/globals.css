@@ -1,26 +1,434 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --green: #64ffda;
+  --navy: #0a192f;
+  --light-navy: #112240;
+  --lightest-navy: #233554;
+  --slate: #8892b0;
+  --light-slate: #a8b2d1;
+  --lightest-slate: #ccd6f6;
+  --white: #e6f1ff;
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  --border-radius: 4px;
+  --transition: all 0.25s ease;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html,
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  background: var(--navy);
+  color: var(--slate);
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  height: 100px;
+  padding: 0 50px;
+  background: color-mix(in srgb, var(--navy) 92%, transparent);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: var(--green);
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--green);
+  border-radius: var(--border-radius);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+}
+
+.site-header nav ol {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+.site-header nav a span {
+  color: var(--green);
+}
+.site-header nav a:hover,
+.resume-btn:hover,
+.cta-btn:hover {
+  color: var(--green);
+}
+
+.resume-btn,
+.cta-btn {
+  color: var(--green);
+  border: 1px solid var(--green);
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1;
+  transition: var(--transition);
+}
+
+main {
+  margin: 0 auto;
+  width: min(1000px, 100% - 3rem);
+  padding: 0;
+}
+
+section {
+  padding: 120px 0;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.overline {
+  margin: 0 0 20px;
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 10px;
+  color: var(--lightest-slate);
+  line-height: 1.1;
+}
+
+.hero h1 {
+  font-size: clamp(40px, 8vw, 80px);
+}
+.hero h2 {
+  font-size: clamp(38px, 7vw, 72px);
+  color: var(--slate);
+}
+.intro {
+  margin: 20px 0 40px;
+  max-width: 560px;
+  line-height: 1.6;
+}
+
+.numbered-heading {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: clamp(26px, 5vw, 32px);
+  margin-bottom: 40px;
+}
+.numbered-heading::before {
+  counter-increment: section;
+  content: "0" counter(section) ".";
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: 18px;
+}
+.numbered-heading::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: var(--lightest-navy);
+}
+
+main {
+  counter-reset: section;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 50px;
+}
+
+.tech-list,
+.project-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.fancy-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 20px;
+  font-size: 20px;
+  line-height: 1.45;
+}
+
+.fancy-list li {
+  position: relative;
+  padding-left: 38px;
+}
+
+.tech-list li::before,
+.project-card ul li::before {
+  content: "▹";
+  color: var(--green);
+  margin-right: 10px;
+}
+
+.fancy-list li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: 17px;
+}
+
+.avatar-wrap {
+  max-width: 300px;
+}
+.avatar {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--border-radius);
+  background: linear-gradient(135deg, var(--lightest-navy), #2d4a75);
+  border: 2px solid var(--green);
+}
+
+.project-card {
+  background: var(--light-navy);
+  border-radius: var(--border-radius);
+  padding: 28px;
+}
+
+.job-panel h3 span,
+.project-kicker {
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+.experience {
+  max-width: 820px;
+  margin-inline: auto;
+}
+
+.jobs-tabs {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 42px;
+  align-items: start;
+}
+
+.jobs-tablist {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+  border-left: 2px solid var(--lightest-navy);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  background: color-mix(in srgb, var(--light-navy) 12%, transparent);
+}
+
+.job-tab {
+  position: relative;
+  width: 100%;
+  min-height: 54px;
+  border: 0;
+  border-left: 2px solid transparent;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  margin-left: -2px;
+  padding: 0 20px 0 24px;
+  background: transparent;
+  color: var(--light-slate);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 54px;
+  text-align: left;
+  transition: var(--transition);
+}
+
+.job-tab + .job-tab {
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--lightest-navy) 42%, transparent);
+}
+
+.job-tab:hover,
+.job-tab:focus-visible {
+  background: color-mix(in srgb, var(--light-navy) 55%, transparent);
+  color: var(--green);
+}
+
+.job-tab:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--green) 70%, transparent);
+  outline-offset: -2px;
+}
+
+.job-tab.active {
+  border-left-color: var(--green);
+  background: color-mix(in srgb, var(--light-navy) 78%, transparent);
+  color: var(--green);
+  font-weight: 500;
+}
+
+.job-panel {
+  min-height: 340px;
+}
+
+.job-panel h3 {
+  margin-bottom: 12px;
+  font-size: 24px;
+}
+
+.job-range {
+  margin: 0 0 28px;
+  color: var(--light-slate);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  letter-spacing: 0.04em;
+}
+
+.projects-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.project-card p {
+  line-height: 1.6;
+}
+
+.contact {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: clamp(32px, 6vw, 60px);
+}
+
+footer {
+  padding: 20px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.left-rail,
+.right-rail {
+  position: fixed;
+  bottom: 0;
+  width: 40px;
+  color: var(--light-slate);
+}
+
+.left-rail {
+  left: 40px;
+}
+.left-rail ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.left-rail::after,
+.right-rail::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 90px;
+  margin: 20px auto 0;
+  background: var(--light-slate);
+}
+
+.right-rail {
+  right: 40px;
+}
+
+.right-rail a {
+  writing-mode: vertical-rl;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+
+@media (max-width: 1080px) {
+  .left-rail,
+  .right-rail {
+    display: none;
+  }
+  .site-header {
+    padding-inline: 25px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (max-width: 768px) {
+  .site-header nav {
+    display: none;
+  }
+  section {
+    padding: 90px 0;
+  }
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .jobs-tabs {
+    grid-template-columns: minmax(140px, 170px) 1fr;
+    gap: 24px;
+  }
+
+  .job-tab {
+    min-height: 50px;
+    padding-inline: 18px 14px;
+    font-size: 14px;
+    line-height: 50px;
+  }
+
+  .fancy-list {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 560px) {
+  .jobs-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .jobs-tablist {
+    width: min(100%, 220px);
+  }
 }
