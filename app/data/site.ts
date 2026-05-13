@@ -76,13 +76,47 @@ export const projects = [
     title: 'Halcyon Theme',
     description:
       'A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more.',
+    preview: {
+      title: 'Halcyon',
+      description: 'A minimal, dark blue theme for VS Code, Sublime Text, Atom, and more.',
+    },
     marketplaces: [
-      'Visual Studio Marketplace',
-      'Package Control',
-      'Atom Package Manager',
-      'npm',
+      { label: 'Visual Studio Marketplace', href: 'https://example.com' },
+      { label: 'Package Control', href: 'https://example.com' },
+      { label: 'Atom Package Manager', href: 'https://example.com' },
+      { label: 'npm', href: 'https://example.com' },
     ],
     tech: ['VS Code', 'Sublime Text', 'Atom', 'iTerm2', 'Hyper'],
+    links: {
+      github: 'https://github.com',
+      external: 'https://example.com',
+    },
+  },
+  {
+    title: 'Spotify Profile',
+    description:
+      'A web app for visualizing personalized Spotify data with account insights and track analytics.',
+    preview: {
+      title: 'Spotify Profile',
+      description: 'Personalized top tracks, artists, playlists, and listening insights.',
+    },
+    marketplaces: [],
+    tech: ['React', 'Express', 'Spotify API', 'Node.js'],
+    links: {
+      github: 'https://github.com',
+      external: 'https://example.com',
+    },
+  },
+  {
+    title: 'Build a Spotify Connected App',
+    description:
+      'A deep-dive guide into the Spotify Web API covering OAuth and deployment best practices.',
+    preview: {
+      title: 'Spotify Guide',
+      description: 'A practical guide to OAuth, Spotify data, deployment, and production workflows.',
+    },
+    marketplaces: [],
+    tech: ['Gatsby', 'MDX', 'Netlify', 'Spotify API'],
     links: {
       github: 'https://github.com',
       external: 'https://example.com',

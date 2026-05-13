@@ -1,5 +1,7 @@
 import { projects } from '@/app/data/site';
 
+type Project = (typeof projects)[number];
+
 function GithubIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -26,12 +28,12 @@ function ExternalIcon() {
   );
 }
 
-function ProjectPreview() {
+function ProjectPreview({ project }: { project: Project }) {
   return (
     <div className="project-preview" aria-hidden="true">
       <div className="preview-hero">
-        <span>Halcyon</span>
-        <small>A minimal, dark blue theme for VS Code, Sublime Text, Atom, and more.</small>
+        <span>{project.preview.title}</span>
+        <small>{project.preview.description}</small>
       </div>
       <div className="preview-editor">
         <div className="preview-sidebar">
@@ -54,6 +56,32 @@ function ProjectPreview() {
   );
 }
 
+function ProjectDescription({ project }: { project: Project }) {
+  return (
+    <p className="project-description">
+      {project.description}
+      {project.marketplaces.length > 0 && (
+        <>
+          {' '}
+          Available on{' '}
+          {project.marketplaces.map((marketplace, index) => (
+            <span key={marketplace.label}>
+              <a href={marketplace.href} target="_blank" rel="noreferrer">
+                {marketplace.label}
+              </a>
+              {index < project.marketplaces.length - 2
+                ? ', '
+                : index === project.marketplaces.length - 2
+                  ? ', and '
+                  : '.'}
+            </span>
+          ))}
+        </>
+      )}
+    </p>
+  );
+}
+
 export function WorkSection() {
   return (
     <section id="work" className="work-section">
@@ -68,27 +96,13 @@ export function WorkSection() {
               rel="noreferrer"
               aria-label={`${project.title} project preview`}
             >
-              <ProjectPreview />
+              <ProjectPreview project={project} />
             </a>
 
             <div className="featured-project-content">
               <p className="project-kicker">Featured Project</p>
               <h3>{project.title}</h3>
-              <p className="project-description">
-                {project.description} Available on{' '}
-                {project.marketplaces.map((marketplace, index) => (
-                  <span key={marketplace}>
-                    <a href={project.links.external} target="_blank" rel="noreferrer">
-                      {marketplace}
-                    </a>
-                    {index < project.marketplaces.length - 2
-                      ? ', '
-                      : index === project.marketplaces.length - 2
-                        ? ', and '
-                        : '.'}
-                  </span>
-                ))}
-              </p>
+              <ProjectDescription project={project} />
               <ul className="project-tech-list" aria-label={`${project.title} technologies`}>
                 {project.tech.map(tech => (
                   <li key={tech}>{tech}</li>
