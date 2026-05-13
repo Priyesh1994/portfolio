@@ -75,19 +75,17 @@ export const projects = [
   {
     title: 'Halcyon Theme',
     description:
-      'A minimal dark blue theme for VS Code, Sublime Text, and more editor ecosystems.',
-    tech: ['VS Code', 'Sublime Text', 'Theme'],
-  },
-  {
-    title: 'Spotify Profile',
-    description:
-      'A web app for visualizing personalized Spotify data with account insights and track analytics.',
-    tech: ['React', 'Express', 'Spotify API'],
-  },
-  {
-    title: 'Build a Spotify Connected App',
-    description:
-      'A deep-dive guide into the Spotify Web API covering OAuth and deployment best practices.',
-    tech: ['Gatsby', 'MDX', 'Netlify'],
+      'A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more.',
+    marketplaces: [
+      'Visual Studio Marketplace',
+      'Package Control',
+      'Atom Package Manager',
+      'npm',
+    ],
+    tech: ['VS Code', 'Sublime Text', 'Atom', 'iTerm2', 'Hyper'],
+    links: {
+      github: 'https://github.com',
+      external: 'https://example.com',
+    },
   },
 ];
