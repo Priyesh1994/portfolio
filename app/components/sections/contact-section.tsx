@@ -7,7 +7,7 @@ export function ContactSection() {
         I&apos;m currently open to new opportunities. My inbox is always open, whether you have a
         question or just want to say hi.
       </p>
-      <a className="cta-btn" href="mailto:hello@example.com">
+      <a className="cta-btn" href="mailto:priyeshdoshi61@gmail.com">
         Say Hello
       </a>
     </section>

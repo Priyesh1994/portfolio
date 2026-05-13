@@ -5,7 +5,7 @@ export function AboutSection() {
       <div className="about-grid">
         <div>
           <p>
-            Hello! My name is John and I enjoy creating things that live on the internet. My
+            Hello! My name is Priyesh and I enjoy creating things that live on the internet. My
             interest in web development started back in 2012.
           </p>
           <p>
