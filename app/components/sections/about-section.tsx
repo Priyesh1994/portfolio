@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export function AboutSection() {
   return (
     <section id="about">
@@ -23,7 +25,16 @@ export function AboutSection() {
           </ul>
         </div>
         <div className="avatar-wrap">
-          <div className="avatar" />
+          <div className="avatar-frame">
+            <Image
+              className="avatar"
+              src="/me.png"
+              alt="Portrait of Priyesh Doshi"
+              width={3024}
+              height={4032}
+              sizes="(max-width: 768px) 70vw, 300px"
+            />
+          </div>
         </div>
       </div>
     </section>
