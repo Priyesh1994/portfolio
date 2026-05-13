@@ -225,27 +225,11 @@ main {
   will-change: transform, filter;
 }
 
-.avatar-frame::before,
 .avatar-frame::after {
   content: "";
   position: absolute;
   border-radius: inherit;
   transition: transform 0.35s ease, opacity 0.35s ease;
-}
-
-.avatar-frame::before {
-  inset: 0;
-  z-index: 1;
-  background:
-    linear-gradient(120deg, transparent 0 34%, color-mix(in srgb, var(--white) 70%, transparent) 48%, transparent 62%),
-    color-mix(in srgb, var(--green) 35%, transparent);
-  mix-blend-mode: screen;
-  opacity: 0.42;
-  pointer-events: none;
-  transform: translateX(-130%);
-}
-
-.avatar-frame::after {
   inset: 18px -18px -18px 18px;
   z-index: -1;
   border: 2px solid var(--green);
@@ -256,12 +240,6 @@ main {
 .avatar-frame:focus-within {
   animation: avatar-hover-float 0.9s ease-in-out infinite alternate;
   filter: drop-shadow(0 22px 32px color-mix(in srgb, var(--green) 26%, transparent));
-}
-
-.avatar-frame:hover::before,
-.avatar-frame:focus-within::before {
-  animation: avatar-shine 1.05s ease-in-out infinite;
-  opacity: 0.9;
 }
 
 .avatar-frame:hover::after,
@@ -294,16 +272,6 @@ main {
 
   to {
     transform: translate(-14px, -12px) rotate(1.5deg);
-  }
-}
-
-@keyframes avatar-shine {
-  from {
-    transform: translateX(-130%);
-  }
-
-  to {
-    transform: translateX(130%);
   }
 }
 
@@ -649,7 +617,6 @@ footer {
   }
 
   .avatar-frame,
-  .avatar-frame::before,
   .avatar-frame::after,
   .avatar {
     animation: none;
