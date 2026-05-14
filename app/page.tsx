@@ -19,7 +19,7 @@ export default function Home() {
       <EmailRail />
 
       <main>
-        <ScrollReveal delayMs={700}>
+        <ScrollReveal delayMs={1000}>
           <HeroSection />
         </ScrollReveal>
         <ScrollReveal>
