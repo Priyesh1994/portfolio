@@ -1,9 +1,13 @@
 import { BrandLogo } from '@/app/components/brand-logo';
 import { navLinks } from '@/app/data/site';
 
-export function SiteHeader() {
+type SiteHeaderProps = {
+  className?: string;
+};
+
+export function SiteHeader({ className }: SiteHeaderProps) {
   return (
-    <header className="site-header">
+    <header className={`site-header ${className ?? ''}`.trim()}>
       <a className="logo" href="#hero" aria-label="Home">
         <BrandLogo className="logo-image" priority />
       </a>
