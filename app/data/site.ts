@@ -80,9 +80,24 @@ export const projects = [
   {
     title: 'Halcyon Theme',
     staticImages: [
-      { title: 'Landing Screen', alt: 'Landing screen mockup', caption: 'Homepage and visual identity.' },
-      { title: 'Theme Explorer', alt: 'Theme explorer mockup', caption: 'Palette and syntax previews.' },
-      { title: 'Marketplace', alt: 'Marketplace listing mockup', caption: 'Publishing and install flow.' },
+      {
+        title: 'Landing Screen',
+        src: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80',
+        alt: 'Code editor on a laptop display',
+        caption: 'Homepage and visual identity.',
+      },
+      {
+        title: 'Theme Explorer',
+        src: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80',
+        alt: 'Desktop monitor showing syntax highlighted code',
+        caption: 'Palette and syntax previews.',
+      },
+      {
+        title: 'Marketplace',
+        src: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
+        alt: 'Workspace with laptop and coding setup',
+        caption: 'Publishing and install flow.',
+      },
     ],
     problem: [
       'Developers needed a focused dark theme with high readability during long coding sessions.',
@@ -111,8 +126,18 @@ export const projects = [
   {
     title: 'Spotify Profile',
     staticImages: [
-      { title: 'Dashboard', alt: 'Spotify dashboard mockup', caption: 'Personal listening overview.' },
-      { title: 'Top Artists', alt: 'Top artists mockup', caption: 'Artist trends by time range.' },
+      {
+        title: 'Dashboard',
+        src: 'https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?auto=format&fit=crop&w=1200&q=80',
+        alt: 'Headphones near a screen with music interface',
+        caption: 'Personal listening overview.',
+      },
+      {
+        title: 'Top Artists',
+        src: 'https://images.unsplash.com/photo-1619983081563-430f63602796?auto=format&fit=crop&w=1200&q=80',
+        alt: 'Music producer workstation with speakers and display',
+        caption: 'Artist trends by time range.',
+      },
     ],
     problem: [
       'Users lacked a simple way to visualize deeper listening behavior beyond the native app.',
@@ -140,9 +165,24 @@ export const projects = [
   {
     title: 'Build a Spotify Connected App',
     staticImages: [
-      { title: 'Guide Intro', alt: 'Guide intro page mockup', caption: 'Overview and setup checklist.' },
-      { title: 'OAuth Flow', alt: 'OAuth architecture mockup', caption: 'Token lifecycle and auth sequence.' },
-      { title: 'Deployment', alt: 'Deployment checklist mockup', caption: 'Production hardening and release steps.' },
+      {
+        title: 'Guide Intro',
+        src: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80',
+        alt: 'Product team discussing roadmap around a table',
+        caption: 'Overview and setup checklist.',
+      },
+      {
+        title: 'OAuth Flow',
+        src: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1200&q=80',
+        alt: 'Developer working with software architecture diagrams',
+        caption: 'Token lifecycle and auth sequence.',
+      },
+      {
+        title: 'Deployment',
+        src: 'https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=1200&q=80',
+        alt: 'Server rack lights and infrastructure hardware',
+        caption: 'Production hardening and release steps.',
+      },
     ],
     problem: [
       'Developers struggled to connect OAuth theory with practical Spotify API implementation.',

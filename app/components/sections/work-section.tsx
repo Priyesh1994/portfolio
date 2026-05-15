@@ -1,4 +1,5 @@
 import { projects } from '@/app/data/site';
+import Image from 'next/image';
 
 type Project = (typeof projects)[number];
 
@@ -27,9 +28,7 @@ function ProjectImages({ project }: { project: Project }) {
       <div className="project-static-images">
         {project.staticImages.map(image => (
           <figure key={image.title} className="project-image-card">
-            <div className="project-image-placeholder" role="img" aria-label={image.alt}>
-              <span>{image.title}</span>
-            </div>
+            <Image className="project-image" src={image.src} alt={image.alt} width={1200} height={800} />
             <figcaption>{image.caption}</figcaption>
           </figure>
         ))}
