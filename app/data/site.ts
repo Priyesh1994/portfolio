@@ -5,10 +5,10 @@ export const logo = {
 
 export const navLinks = [
   { label: 'Services', href: '#services' },
-  { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
   { label: 'Work', href: '#work' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'About Me', href: '#about' },
+  { label: 'Contact Me', href: '#contact' },
 ];
 
 export const socialLinks = [

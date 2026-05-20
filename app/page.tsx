@@ -27,13 +27,13 @@ export default function Home() {
           <ServicesSection />
         </ScrollReveal>
         <ScrollReveal>
-          <AboutSection />
-        </ScrollReveal>
-        <ScrollReveal>
           <ExperienceSection />
         </ScrollReveal>
         <ScrollReveal>
           <WorkSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <AboutSection />
         </ScrollReveal>
         <ScrollReveal>
           <ContactSection />
