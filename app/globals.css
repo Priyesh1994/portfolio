@@ -458,6 +458,30 @@ footer {
   font-size: 12px;
 }
 
+
+.mobile-footer {
+  display: none;
+}
+
+.mobile-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-footer-email {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.mobile-footer-email:hover,
+.mobile-footer-email:focus-visible {
+  color: var(--green);
+}
+
 .left-rail,
 .right-rail,
 .phone-rail {
@@ -676,6 +700,23 @@ footer {
 
   .fancy-list {
     font-size: 17px;
+  }
+
+  .mobile-footer {
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .mobile-footer ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .mobile-footer a {
+    display: grid;
+    place-items: center;
   }
 }
 
