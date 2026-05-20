@@ -86,10 +86,10 @@ export const projects = [
       'solution': 'Developed a lightweight, zero-cost-infrastructure web platform using React and Firebase that automates catalog sharing, role-based quotation generation, and print-ready PDF creation.',
       'impact': 'Streamlined daily operations, reduced dependency on the business owner, and accelerated the sales workflow while maintaining near-zero operational costs.',
     },
-    tech: ['VS Code', 'Sublime Text', 'Atom', 'iTerm2', 'Hyper'],
+    tech: ['React.js', 'Next.js', 'Firebase Authentication & Firestore', 'Cloudinary', 'Vercel'],
     links: {
-      github: 'https://github.com',
-      external: 'https://example.com',
+      github: 'https://github.com/Priyesh1994/nilam-synthetics',
+      external: 'https://www.nilamsynthetics.com/',
     },
   },
 ];
