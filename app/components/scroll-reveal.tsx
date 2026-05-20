@@ -19,21 +19,43 @@ export function ScrollReveal({ children, className, delayMs = 0 }: ScrollRevealP
       return;
     }
 
+    const reveal = () => setIsVisible(true);
+
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            setIsVisible(true);
+            reveal();
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.05, rootMargin: '-90px 0px -10% 0px' }
     );
 
+    const revealFromHash = () => {
+      const hash = window.location.hash;
+
+      if (!hash) {
+        return;
+      }
+
+      const target = document.querySelector(hash);
+
+      if (target && node.contains(target)) {
+        reveal();
+        observer.unobserve(node);
+      }
+    };
+
+    revealFromHash();
+    window.addEventListener('hashchange', revealFromHash);
     observer.observe(node);
 
-    return () => observer.disconnect();
+    return () => {
+      window.removeEventListener('hashchange', revealFromHash);
+      observer.disconnect();
+    };
   }, []);
 
   return (
