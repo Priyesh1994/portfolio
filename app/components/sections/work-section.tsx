@@ -1,4 +1,5 @@
 import { projects } from '@/app/data/site';
+import Image from 'next/image';
 
 type Project = (typeof projects)[number];
 
@@ -29,30 +30,18 @@ function ExternalIcon() {
 }
 
 function ProjectPreview({ project }: { project: Project }) {
+  if (!project.image) {
+    return null;
+  }
+
   return (
-    <div className="project-preview" aria-hidden="true">
-      <div className="preview-hero">
-        <span>{project.preview.title}</span>
-        <small>{project.preview.description}</small>
-      </div>
-      <div className="preview-editor">
-        <div className="preview-sidebar">
-          {Array.from({ length: 11 }, (_, index) => (
-            <i key={index} style={{ width: `${index % 3 === 0 ? 74 : 52}%` }} />
-          ))}
-        </div>
-        <div className="preview-code">
-          {Array.from({ length: 13 }, (_, index) => (
-            <i key={index} style={{ width: `${44 + ((index * 19) % 42)}%` }} />
-          ))}
-        </div>
-        <div className="preview-code secondary">
-          {Array.from({ length: 12 }, (_, index) => (
-            <i key={index} style={{ width: `${38 + ((index * 23) % 48)}%` }} />
-          ))}
-        </div>
-      </div>
-    </div>
+    <Image
+      className="project-preview"
+      src={project.image}
+      alt={`${project.title} preview image`}
+      width={1200}
+      height={750}
+    />
   );
 }
 

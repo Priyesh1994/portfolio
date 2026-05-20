@@ -695,14 +695,11 @@ footer {
 
 .project-preview {
   position: relative;
+  display: block;
+  width: 100%;
   aspect-ratio: 16 / 10;
   min-height: 360px;
-  overflow: hidden;
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--green) 20%, var(--light-navy)), color-mix(in srgb, var(--navy) 86%, black)),
-    var(--light-navy);
-  color: var(--green);
-  font-family: var(--font-mono);
+  object-fit: cover;
 }
 
 .preview-hero {

@@ -78,50 +78,15 @@ export const jobs = [
 
 export const projects = [
   {
-    title: 'Halcyon Theme',
-    description:
-      'A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more.',
-    preview: {
-      title: 'Halcyon',
-      description: 'A minimal, dark blue theme for VS Code, Sublime Text, Atom, and more.',
+    title: 'Textile Wholesale Management & Quotation Platform',
+    description:"",
+    image: '/project1.png',
+    content: {
+      'challenge': 'A textile wholesaler needed to eliminate manual, repetitive workflows caused by handling high volumes of product inquiries and custom quotations over WhatsApp.',
+      'solution': 'Developed a lightweight, zero-cost-infrastructure web platform using React and Firebase that automates catalog sharing, role-based quotation generation, and print-ready PDF creation.',
+      'impact': 'Streamlined daily operations, reduced dependency on the business owner, and accelerated the sales workflow while maintaining near-zero operational costs.',
     },
-    marketplaces: [
-      { label: 'Visual Studio Marketplace', href: 'https://example.com' },
-      { label: 'Package Control', href: 'https://example.com' },
-      { label: 'Atom Package Manager', href: 'https://example.com' },
-      { label: 'npm', href: 'https://example.com' },
-    ],
     tech: ['VS Code', 'Sublime Text', 'Atom', 'iTerm2', 'Hyper'],
-    links: {
-      github: 'https://github.com',
-      external: 'https://example.com',
-    },
-  },
-  {
-    title: 'Spotify Profile',
-    description:
-      'A web app for visualizing personalized Spotify data with account insights and track analytics.',
-    preview: {
-      title: 'Spotify Profile',
-      description: 'Personalized top tracks, artists, playlists, and listening insights.',
-    },
-    marketplaces: [],
-    tech: ['React', 'Express', 'Spotify API', 'Node.js'],
-    links: {
-      github: 'https://github.com',
-      external: 'https://example.com',
-    },
-  },
-  {
-    title: 'Build a Spotify Connected App',
-    description:
-      'A deep-dive guide into the Spotify Web API covering OAuth and deployment best practices.',
-    preview: {
-      title: 'Spotify Guide',
-      description: 'A practical guide to OAuth, Spotify data, deployment, and production workflows.',
-    },
-    marketplaces: [],
-    tech: ['Gatsby', 'MDX', 'Netlify', 'Spotify API'],
     links: {
       github: 'https://github.com',
       external: 'https://example.com',
