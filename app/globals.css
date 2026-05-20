@@ -500,6 +500,14 @@ footer {
   font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.12em;
+  transition: transform 0.25s ease, color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.right-rail a:hover,
+.right-rail a:focus-visible {
+  color: var(--green);
+  transform: translateY(-4px);
+  text-shadow: 0 0 14px color-mix(in srgb, var(--green) 35%, transparent);
 }
 
 @media (max-width: 1080px) {
