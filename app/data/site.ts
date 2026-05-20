@@ -92,4 +92,19 @@ export const projects = [
       external: 'https://www.nilamsynthetics.com/',
     },
   },
+  {
+    title: 'Contractor Management System for Kurti Manufacturer',
+    description:"",
+    image: '/project2.png',
+    content: {
+      'challenge': 'A kurti manufacturer struggled with operational visibility, manual ledger tracking, and repetitive paperwork when coordinating production with multiple independent contractors.',
+      'solution': 'Built a specialized web application using React and Supabase featuring automated template creation, visual production dashboards, and centralized payment ledger tracking.',
+      'impact': 'Eliminated manual bookkeeping, streamlined the billing process, and provided clear visibility into production statuses and liabilities at a near-zero infrastructure cost.',
+    },
+    tech: ['React.js', 'Supabase', 'Vercel'],
+    links: {
+      github: 'https://github.com/Priyesh1994/kurti-manufacturing-app',
+      external: 'https://www.kurti-manufacturing-app.vercel.app/',
+    },
+  }
 ];
