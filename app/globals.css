@@ -419,7 +419,8 @@ footer {
 }
 
 .left-rail,
-.right-rail {
+.right-rail,
+.phone-rail {
   position: fixed;
   bottom: 0;
   width: 40px;
@@ -482,7 +483,8 @@ footer {
   border: 0;
 }
 .left-rail::after,
-.right-rail::after {
+.right-rail::after,
+.phone-rail::after {
   content: "";
   display: block;
   width: 1px;
@@ -495,7 +497,12 @@ footer {
   right: 40px;
 }
 
-.right-rail a {
+.phone-rail {
+  right: 84px;
+}
+
+.right-rail a,
+.phone-rail a {
   writing-mode: vertical-rl;
   font-family: var(--font-mono);
   font-size: 12px;
@@ -504,7 +511,9 @@ footer {
 }
 
 .right-rail a:hover,
-.right-rail a:focus-visible {
+.right-rail a:focus-visible,
+.phone-rail a:hover,
+.phone-rail a:focus-visible {
   color: var(--green);
   transform: translateY(-4px);
   text-shadow: 0 0 14px color-mix(in srgb, var(--green) 35%, transparent);
@@ -512,7 +521,8 @@ footer {
 
 @media (max-width: 1080px) {
   .left-rail,
-  .right-rail {
+  .right-rail,
+  .phone-rail {
     display: none;
   }
   .site-header {
