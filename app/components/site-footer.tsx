@@ -47,8 +47,11 @@ export function SiteFooter() {
         <a className="mobile-footer-email" href="mailto:priyeshdoshi61@gmail.com">
           priyeshdoshi61@gmail.com
         </a>
+        <a className="mobile-footer-phone" href="tel:+919409423441">
+          9409423441
+        </a>
       </div>
-      <p>Designed &amp; Built with inspiration from Brittany Chiang</p>
+      <p>Handcrafted by me. Visual inspiration via Brittany Chiang.</p>
     </footer>
   );
 }
