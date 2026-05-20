@@ -700,6 +700,14 @@ footer {
   aspect-ratio: 16 / 10;
   min-height: 360px;
   object-fit: cover;
+  object-position: top center;
+  transition: object-fit 0.25s ease, object-position 0.25s ease;
+}
+
+.featured-project-image:hover .project-preview,
+.featured-project-image:focus-visible .project-preview {
+  object-fit: contain;
+  object-position: center;
 }
 
 .preview-hero {
