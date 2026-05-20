@@ -124,6 +124,7 @@ a {
   font-size: 13px;
   line-height: 1;
   transition: var(--transition);
+  width: fit-content;
 }
 
 main {
@@ -133,7 +134,7 @@ main {
 }
 
 section {
-  padding: 120px 0;
+  padding: 60px 0;
   scroll-margin-top: 120px;
 }
 

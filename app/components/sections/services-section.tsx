@@ -38,7 +38,6 @@ export function ServicesSection() {
   return (
     <section id="services">
       <h2 className="numbered-heading">Services</h2>
-      <p className="services-intro">I can help you with</p>
       <div className="services-grid">
         {serviceGroups.map((group) => (
           <article key={group.title} className="service-card">
