@@ -69,9 +69,11 @@ a {
   font-family: var(--font-mono);
   font-size: 13px;
 }
+
 .site-header nav a span {
   color: var(--green);
 }
+
 .site-header nav a:hover,
 .resume-btn:hover,
 .cta-btn:hover {
@@ -127,10 +129,12 @@ h3 {
 .hero h1 {
   font-size: clamp(40px, 8vw, 80px);
 }
+
 .hero h2 {
   font-size: clamp(38px, 7vw, 72px);
   color: var(--slate);
 }
+
 .intro {
   margin: 20px 0 40px;
   max-width: 560px;
@@ -144,6 +148,7 @@ h3 {
   font-size: clamp(26px, 5vw, 32px);
   margin-bottom: 40px;
 }
+
 .numbered-heading::before {
   counter-increment: section;
   content: "0" counter(section) ".";
@@ -151,6 +156,7 @@ h3 {
   font-family: var(--font-mono);
   font-size: 18px;
 }
+
 .numbered-heading::after {
   content: "";
   height: 1px;
@@ -353,7 +359,7 @@ main {
   transition: var(--transition);
 }
 
-.job-tab + .job-tab {
+.job-tab+.job-tab {
   box-shadow: inset 0 1px 0 color-mix(in srgb, var(--lightest-navy) 42%, transparent);
 }
 
@@ -430,6 +436,7 @@ footer {
 .left-rail {
   left: 40px;
 }
+
 .left-rail ul {
   display: flex;
   flex-direction: column;
@@ -482,6 +489,7 @@ footer {
   white-space: nowrap;
   border: 0;
 }
+
 .left-rail::after,
 .right-rail::after,
 .phone-rail::after {
@@ -520,11 +528,13 @@ footer {
 }
 
 @media (max-width: 1080px) {
+
   .left-rail,
   .right-rail,
   .phone-rail {
     display: none;
   }
+
   .site-header {
     padding-inline: 25px;
   }
@@ -534,9 +544,11 @@ footer {
   .site-header nav {
     display: none;
   }
+
   section {
     padding: 90px 0;
   }
+
   .about-grid {
     grid-template-columns: 1fr;
   }
@@ -628,11 +640,13 @@ footer {
     transform: rotate(-90deg) scale(0.84);
     opacity: 0.25;
   }
+
   70% {
     stroke-dashoffset: 0;
     transform: rotate(0deg) scale(1.03);
     opacity: 1;
   }
+
   100% {
     stroke-dashoffset: 0;
     transform: rotate(0deg) scale(1);
@@ -661,6 +675,7 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .initial-loader,
   .loader-hexagon polygon,
   .loader-letter {
@@ -865,7 +880,7 @@ footer {
   margin: 0;
 }
 
-.project-description-line + .project-description-line {
+.project-description-line+.project-description-line {
   margin-top: 12px;
 }
 
