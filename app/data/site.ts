@@ -4,6 +4,7 @@ export const logo = {
 };
 
 export const navLinks = [
+  { label: 'Services', href: '#services' },
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
   { label: 'Work', href: '#work' },
@@ -107,4 +108,40 @@ export const projects = [
       external: 'https://kurti-manufacturing-app.vercel.app/',
     },
   }
+];
+
+export const serviceGroups = [
+  {
+    title: 'Business Workflow Systems',
+    description:
+      'Custom web applications designed to simplify daily business operations and internal workflows.',
+    items: [
+      'Quotation management systems',
+      'Inventory & catalog dashboards',
+      'Contractor/vendor management',
+      'Role-based admin panels',
+    ],
+  },
+  {
+    title: 'WhatsApp & Automation Integrations',
+    description:
+      'Automate communication, enquiry handling, and repetitive business tasks with lightweight automation systems.',
+    items: [
+      'WhatsApp enquiry flows',
+      'Product sharing systems',
+      'Customer communication tools',
+      'PDF & invoice automation',
+    ],
+  },
+  {
+    title: 'Rapid MVP Development',
+    description:
+      'Fast and cost-effective MVP development for startups using modern AI-assisted workflows.',
+    items: [
+      'SaaS MVPs',
+      'Admin portals',
+      'AI-powered features',
+      'Cloud deployment',
+    ],
+  },
 ];
