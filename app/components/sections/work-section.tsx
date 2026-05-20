@@ -46,27 +46,14 @@ function ProjectPreview({ project }: { project: Project }) {
 }
 
 function ProjectDescription({ project }: { project: Project }) {
+  const contentEntries = Object.entries(project.content);
+
   return (
     <p className="project-description">
-      {project.description}
-      {project.marketplaces.length > 0 && (
-        <>
-          {' '}
-          Available on{' '}
-          {project.marketplaces.map((marketplace, index) => (
-            <span key={marketplace.label}>
-              <a href={marketplace.href} target="_blank" rel="noreferrer">
-                {marketplace.label}
-              </a>
-              {index < project.marketplaces.length - 2
-                ? ', '
-                : index === project.marketplaces.length - 2
-                  ? ', and '
-                  : '.'}
-            </span>
-          ))}
-        </>
-      )}
+      {project.description ||
+        contentEntries
+          .map(([label, details]) => `${label[0].toUpperCase()}${label.slice(1)}: ${details}`)
+          .join(' ')}
     </p>
   );
 }
