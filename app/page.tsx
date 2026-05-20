@@ -5,6 +5,7 @@ import { SiteFooter } from '@/app/components/site-footer';
 import { SiteHeader } from '@/app/components/site-header';
 import { SocialRail } from '@/app/components/social-rail';
 import { AboutSection } from '@/app/components/sections/about-section';
+import { ServicesSection } from '@/app/components/sections/services-section';
 import { ContactSection } from '@/app/components/sections/contact-section';
 import { ExperienceSection } from '@/app/components/sections/experience-section';
 import { HeroSection } from '@/app/components/sections/hero-section';
@@ -21,6 +22,9 @@ export default function Home() {
       <main>
         <ScrollReveal delayMs={1000}>
           <HeroSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <ServicesSection />
         </ScrollReveal>
         <ScrollReveal>
           <AboutSection />
