@@ -30,10 +30,14 @@ function ExternalIcon() {
 }
 
 function ProjectPreview({ project }: { project: Project }) {
+  if (!project.image) {
+    return null;
+  }
+
   return (
     <Image
       className="project-preview"
-      src="/logo.png"
+      src={project.image}
       alt={`${project.title} preview image`}
       width={1200}
       height={750}
