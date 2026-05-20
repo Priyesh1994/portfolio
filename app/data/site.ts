@@ -104,7 +104,7 @@ export const projects = [
     tech: ['React.js', 'Supabase', 'Vercel'],
     links: {
       github: 'https://github.com/Priyesh1994/kurti-manufacturing-app',
-      external: 'https://www.kurti-manufacturing-app.vercel.app/',
+      external: 'https://kurti-manufacturing-app.vercel.app/',
     },
   }
 ];
