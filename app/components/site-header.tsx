@@ -54,7 +54,13 @@ export function SiteHeader({ className }: SiteHeaderProps) {
           ))}
         </ol>
       </nav>
-      <a className="resume-btn" href="#" aria-label="Resume" onClick={() => setMobileOpen(false)}>
+      <a
+        className="resume-btn"
+        href="/resume.pdf"
+        download="Priyesh-Doshi-Resume.pdf"
+        aria-label="Download resume"
+        onClick={() => setMobileOpen(false)}
+      >
         Resume
       </a>
     </header>
