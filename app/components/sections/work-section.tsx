@@ -46,28 +46,24 @@ function ProjectPreview({ project }: { project: Project }) {
 }
 
 function ProjectDescription({ project }: { project: Project }) {
+  const contentEntries = Object.entries(project.content);
+
+  if (project.description) {
+    return <p className="project-description">{project.description}</p>;
+  }
+
   return (
-    <p className="project-description">
-      {project.description}
-      {project.marketplaces.length > 0 && (
-        <>
-          {' '}
-          Available on{' '}
-          {project.marketplaces.map((marketplace, index) => (
-            <span key={marketplace.label}>
-              <a href={marketplace.href} target="_blank" rel="noreferrer">
-                {marketplace.label}
-              </a>
-              {index < project.marketplaces.length - 2
-                ? ', '
-                : index === project.marketplaces.length - 2
-                  ? ', and '
-                  : '.'}
-            </span>
-          ))}
-        </>
-      )}
-    </p>
+    <div className="project-description" role="list" aria-label={`${project.title} details`}>
+      {contentEntries.map(([label, details]) => (
+        <p key={label} className="project-description-line" role="listitem">
+          <strong className="project-description-label">
+            {label[0].toUpperCase()}
+            {label.slice(1)}:
+          </strong>{' '}
+          {details}
+        </p>
+      ))}
+    </div>
   );
 }
 

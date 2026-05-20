@@ -684,7 +684,7 @@ footer {
   inset: 0;
   background: color-mix(in srgb, #0a5f68 70%, var(--green) 30%);
   mix-blend-mode: multiply;
-  opacity: 0.86;
+  opacity: 0;
   transition: var(--transition);
 }
 
@@ -798,6 +798,18 @@ footer {
   box-shadow: 0 10px 30px -15px color-mix(in srgb, #020c1b 90%, transparent);
   font-size: 18px;
   line-height: 1.55;
+}
+
+.project-description-line {
+  margin: 0;
+}
+
+.project-description-line + .project-description-line {
+  margin-top: 12px;
+}
+
+.project-description-label {
+  color: var(--green);
 }
 
 .project-description a,
