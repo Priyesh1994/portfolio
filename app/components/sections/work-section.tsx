@@ -74,25 +74,16 @@ export function WorkSection() {
       <div className="featured-projects">
         {projects.map(project => (
           <article key={project.title} className="featured-project">
-            <a
-              className="featured-project-image"
-              href={project.links.external}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`${project.title} project preview`}
-            >
-              <ProjectPreview project={project} />
-            </a>
-
-            <div className="featured-project-content">
-              <p className="project-kicker">Featured Project</p>
-              <h3>{project.title}</h3>
-              <ProjectDescription project={project} />
-              <ul className="project-tech-list" aria-label={`${project.title} technologies`}>
-                {project.tech.map(tech => (
-                  <li key={tech}>{tech}</li>
-                ))}
-              </ul>
+            <div className="featured-project-media">
+              <a
+                className="featured-project-image"
+                href={project.links.external}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`${project.title} project preview`}
+              >
+                <ProjectPreview project={project} />
+              </a>
               <div className="project-links" aria-label={`${project.title} links`}>
                 <a
                   href={project.links.github}
@@ -111,6 +102,17 @@ export function WorkSection() {
                   <ExternalIcon />
                 </a>
               </div>
+            </div>
+
+            <div className="featured-project-content">
+              <p className="project-kicker">Featured Project</p>
+              <h3>{project.title}</h3>
+              <ProjectDescription project={project} />
+              <ul className="project-tech-list" aria-label={`${project.title} technologies`}>
+                {project.tech.map(tech => (
+                  <li key={tech}>{tech}</li>
+                ))}
+              </ul>
             </div>
           </article>
         ))}
