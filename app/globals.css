@@ -438,6 +438,23 @@ footer {
   margin: 0;
   list-style: none;
 }
+
+.social-login {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  transition: transform 0.25s ease, color 0.25s ease;
+  opacity: 0;
+  animation: social-login-reveal 0.5s ease forwards;
+  animation-delay: calc(var(--stagger-order) * 0.08s);
+}
+
+.social-login:hover {
+  color: var(--green);
+  transform: translateY(-3px);
+}
+
 .left-rail::after,
 .right-rail::after {
   content: "";
@@ -446,6 +463,18 @@ footer {
   height: 90px;
   margin: 20px auto 0;
   background: var(--light-slate);
+}
+
+@keyframes social-login-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .right-rail {
