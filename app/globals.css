@@ -574,7 +574,7 @@ footer {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .site-header {
     height: 82px;
     padding: 0 20px;
