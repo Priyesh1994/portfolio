@@ -48,13 +48,22 @@ function ProjectPreview({ project }: { project: Project }) {
 function ProjectDescription({ project }: { project: Project }) {
   const contentEntries = Object.entries(project.content);
 
+  if (project.description) {
+    return <p className="project-description">{project.description}</p>;
+  }
+
   return (
-    <p className="project-description">
-      {project.description ||
-        contentEntries
-          .map(([label, details]) => `${label[0].toUpperCase()}${label.slice(1)}: ${details}`)
-          .join(' ')}
-    </p>
+    <div className="project-description" role="list" aria-label={`${project.title} details`}>
+      {contentEntries.map(([label, details]) => (
+        <p key={label} className="project-description-line" role="listitem">
+          <strong className="project-description-label">
+            {label[0].toUpperCase()}
+            {label.slice(1)}:
+          </strong>{' '}
+          {details}
+        </p>
+      ))}
+    </div>
   );
 }
 

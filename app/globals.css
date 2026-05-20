@@ -800,6 +800,18 @@ footer {
   line-height: 1.55;
 }
 
+.project-description-line {
+  margin: 0;
+}
+
+.project-description-line + .project-description-line {
+  margin-top: 12px;
+}
+
+.project-description-label {
+  color: var(--green);
+}
+
 .project-description a,
 .project-description strong,
 .project-description em {
